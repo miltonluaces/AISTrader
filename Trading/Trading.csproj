@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70C7C9F6-2E87-4C2E-8FE5-7A984807985C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Trading</RootNamespace>
+    <AssemblyName>Trading</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MachineLearning">
+      <HintPath>..\Kernel\MachineLearning.dll</HintPath>
+    </Reference>
+    <Reference Include="Maths">
+      <HintPath>..\Kernel\Maths.dll</HintPath>
+    </Reference>
+    <Reference Include="MonteCarlo">
+      <HintPath>..\Kernel\MonteCarlo.dll</HintPath>
+    </Reference>
+    <Reference Include="Statistics">
+      <HintPath>..\Kernel\Statistics.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Utilities\CurrencyCalculator.cs" />
+    <Compile Include="Utilities\ExcelReader.cs" />
+    <Compile Include="Forecast\CalcReport.cs" />
+    <Compile Include="Forecast\IForecastCalc.cs" />
+    <Compile Include="Forecast\ICalcReport.cs" />
+    <Compile Include="Forecast\NNForecastCalc.cs" />
+    <Compile Include="Forecast\StatForecastCalc.cs" />
+    <Compile Include="Forecast\TechLevel.cs" />
+    <Compile Include="Forecast\ForecastCalculator.cs" />
+    <Compile Include="Load\Batch.cs" />
+    <Compile Include="Load\Downloader.cs" />
+    <Compile Include="Load\Mailer.cs" />
+    <Compile Include="Load\DataSaver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Load\TSBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessModel\BusinessModel.csproj">
+      <Project>{f6ab9353-2928-4d00-ae1a-61e2a109456a}</Project>
+      <Name>BusinessModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
